@@ -1,0 +1,24 @@
+const mongoose = require("mongoose");
+
+const Schema = mongoose.Schema;
+
+const prescriptionSchema = new mongoose.Schema({
+  patient: {
+    nhi: {
+      type: String,
+      unique: true,
+      index: true,
+    },
+    name: String,
+  },
+  date: String,
+  medications: [
+    {
+      id: String,
+      dosage: String,
+    },
+  ],
+});
+
+const Prescription = mongoose.model("Prescription", prescriptionSchema, "prescriptions");
+module.exports = Prescription;
