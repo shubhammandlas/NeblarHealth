@@ -16,6 +16,7 @@ const prescriptionSchema = new mongoose.Schema({
     {
       id: String,
       dosage: String,
+      _id: false
     },
   ],
 });

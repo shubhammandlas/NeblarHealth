@@ -10,12 +10,13 @@ dotenv.config();
 
 //connecting to mongo
 const connectDB = require("./dbConfig/repo");
+const verifyToken = require('./service/auth');
 connectDB();
 
 app.use(express.json());
 
 
-app.use('/graphql', graphqlHTTP({
+app.use('/graphql', verifyToken, graphqlHTTP({
     schema,
     graphiql: true
 }))
@@ -29,8 +30,3 @@ app.get("/", (req, res, next) => {
         message: "Hello from root!",
     });
 });
-
-// const priscriptionRoutes = require("./router/prescription");
-// const userRoutes = require("./router/user")
-// app.use("/", priscriptionRoutes)
-// app.use('/', userRoutes)

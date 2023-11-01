@@ -1,0 +1,28 @@
+name: 
+
+on:
+  pull_request:
+    branches:
+      - master  # Adjust to the default branch name of your repository
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14  # Choose the Node.js version you want
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint code
+        run: npm run lint  # Adjust the linting command as per your project
+
+      - name: Run tests
+        run: npm test  # Adjust the test command as per your project
