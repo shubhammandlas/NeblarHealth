@@ -34,11 +34,11 @@ async function updatePrescription(args) {
 }
 
 async function syncExternalDataWithDb(apiData, nhi) {
-    const { patient, medications } = apiData;
+    // const { patient, medications } = apiData;
     const dbData = await Prescription.findOne({ "patient.nhi": nhi });
     const isEqual = deepEqualWithExclusion(dbData, apiData, ["_id"])
     if (!isEqual) {
-        const pres = await Prescription.findOneAndUpdate(
+        await Prescription.findOneAndUpdate(
             { "patient.nhi": nhi },
             { $set: { ...apiData, _id: dbData._id } },
             { new: true, upsert: true }

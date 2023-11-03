@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema;
-
 const prescriptionSchema = new mongoose.Schema({
   patient: {
     nhi: {

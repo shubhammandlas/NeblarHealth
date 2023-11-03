@@ -1,7 +1,7 @@
 // MongoDB connection via mongoose
 const mongoose = require("mongoose");
 
-const database = "neblarhealth";
+// const database = "neblarhealth";
 const mongoUri = process.env.MONGO_URI;
 
 const connectDB = async () => {

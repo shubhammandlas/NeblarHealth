@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const dotenv = require("dotenv");
-const db = require('./models');
+// const db = require('./models');
 const { graphqlHTTP } = require("express-graphql")
 const schema = require('./schemas/index')
 
@@ -25,7 +25,7 @@ app.listen(port, () => {
     console.log(`Neblar Health app listening on port ${port}`);
 });
 
-app.get("/", (req, res, next) => {
+app.get("/", (req, res) => {
     return res.status(200).json({
         message: "Hello from root!",
     });
