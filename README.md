@@ -30,6 +30,7 @@ GraphQL Schema
     ]
 }
 
+Diagram
 
-
+https://drive.google.com/file/d/19drx8ke2UuOgl46QFBseOP1dJKlOOcZH/view?usp=sharing
    
